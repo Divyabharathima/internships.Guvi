@@ -8,9 +8,7 @@ if (isset($_POST['gmail'], $_POST['gpassword']) && !empty($_POST['gmail']) && !e
     $email = $_POST['gmail'];
     $password = $_POST['gpassword'];
 
-    // Validate and sanitize user input
-    // (Ensure to use proper validation/sanitization methods or prepared statements to prevent SQL injection)
-
+   
     // Check user in MySQL
     $sql = "SELECT * FROM user_details WHERE email=? AND password = ?";
     $stmt = $con->prepare($sql);
@@ -42,8 +40,7 @@ if (isset($_POST['gmail'], $_POST['gpassword']) && !empty($_POST['gmail']) && !e
             'password' => $user['password'],
         ]);
 
-        // Set expiration time if needed
-        // $redisClient->expire($userDataKey, 3600); // Expire in 1 hour
+
 
         exit(json_encode([
             'status' => 'success',
